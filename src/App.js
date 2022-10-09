@@ -26,7 +26,7 @@ function App() {
     setWeatherData([]);
     let howToSearch = (typeof location === 'string') ? `q=${location}` : `lat=${location[0]}&lon=${location[1]}`;
     try {
-      let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?${howToSearch}&appid=c010481c858642d17952a862748bf0b1&units=metric&cnt=5&exclude=hourly,minutely`);
+      let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?${howToSearch}&appid=${API_KEY}&units=metric&cnt=5&exclude=hourly,minutely`);
       let data = await response.json();
       if(data.cod != 200) {
         setNoData('Location not found');
